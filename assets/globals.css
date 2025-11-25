@@ -7,6 +7,21 @@
 }
 
 html{
-    background-color: lightblue;
-    font-family: sans-serif;
+    /* background-color: rgb(195, 228, 239); */
+    background-color: #D4DCFF;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.main h1{
+    margin: 24px;
+    text-align: center;
+    color: rgb(29, 29, 41)
 }

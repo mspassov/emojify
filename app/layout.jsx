@@ -1,5 +1,8 @@
 import React from "react";
+import Navbar from "@/components/Navbar";
 import "@/assets/globals.css";
+import "@/assets/nav.css";
+import { Poppins, Pacifico } from "next/font/google";
 
 export const metadata = {
   title: "Emojify",
@@ -7,10 +10,25 @@ export const metadata = {
   description: "Convert any text to emojis - powered by AI",
 };
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+const pacifico = Pacifico({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
 const MainLayout = ({ children }) => {
   return (
-    <html>
-      <body>{children}</body>
+    <html className={`${poppins.variable} ${pacifico.variable}`}>
+      <body className="container">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 };

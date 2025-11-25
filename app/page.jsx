@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
+import EmojiForm from '@/components/EmojiForm';
+import Link from 'next/link';
 
 const HomePage = () => {
+    
   return (
-    <div>HomePage</div>
+    <section className='main'>
+        <h1>Emojify your text!</h1>
+        <EmojiForm />
+    </section>
   )
 }
 

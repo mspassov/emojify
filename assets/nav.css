@@ -1,0 +1,39 @@
+.nav{
+    margin: 16px 0;
+}
+.navbar-ul{
+    border-radius: 36px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+
+}
+
+.nav .navbar-ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* max-width: 800px; */
+    margin: 0 auto;
+    padding: 2px 0;
+}
+
+.navbar-ul .logo{
+    font-family: 'Pacifico', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #7D83FF;
+    margin: 4px 12px;
+    padding: 2px 8px;
+}
+
+.navbar-ul .nav-link-ul{
+    display: flex;
+}
+
+.navbar-ul .nav-link{
+    margin: 4px 12px;
+    padding: 2px 8px;
+}
