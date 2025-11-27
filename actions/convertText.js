@@ -1,6 +1,15 @@
 'use server';
 
-const convertText = async (formData) =>{
+const convertText = async (prevState, formData) =>{
+
+    //Ensure that we are getting a real formData and not resetting the state
+    if(! (formData instanceof FormData)){
+        return {
+            content: null,
+            reasoning: null,
+        }
+    }
+
     const sentence = formData.get('normalText');
 
     const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
@@ -20,8 +29,13 @@ const convertText = async (formData) =>{
 
     const result = await res.json();
 
-    console.log(result.choices[0].message);
+    const resData = {
+        content: result.choices[0].message.content,
+        reasoning: result.choices[0].message.reasoning
+    }
+
+    return resData;
 }
 
-
+ 
 export default convertText;
