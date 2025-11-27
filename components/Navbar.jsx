@@ -6,11 +6,23 @@ const Navbar = () => {
     <nav className="nav">
       <div className="navbar-ul">
         <div className="logo">Emojify</div>
-        <div className="nav-link-ul">
-          <div className="nav-link">Home</div>
-          <div className="nav-link">About</div>
-          <div className="nav-link">Github</div>
-        </div>
+        <ul className="nav-link-ul">
+          <li className="nav-link">
+            <Link href="#" className="link">
+              Home
+            </Link>
+          </li>
+          <li className="nav-link">
+            <Link href="#" className="link">
+              About
+            </Link>
+          </li>
+          <li className="nav-link">
+            <Link href="#" className="link">
+              Github
+            </Link>
+          </li>
+        </ul>
       </div>
     </nav>
   );

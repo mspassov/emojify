@@ -31,6 +31,12 @@
 
 .navbar-ul .nav-link-ul{
     display: flex;
+    list-style: none;
+}
+
+.nav-link .link{
+    text-decoration: none;
+    color: rgb(29, 29, 41)
 }
 
 .navbar-ul .nav-link{

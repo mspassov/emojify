@@ -1,5 +1,5 @@
 "use client";
-
+import EmojiCard from "./EmojiCard";
 import convertText from "@/actions/convertText";
 import { useActionState, useTransition } from "react";
 
@@ -17,21 +17,26 @@ const EmojiForm = () => {
 
   return (
     <div>
-      <form action={formAction}>
-        <textarea
+      <form action={formAction} className="flex-form">
+        <input
+          type="textarea"
           className="textarea"
           name="normalText"
           id="normalText"
           placeholder="Emojify your sentence..."
-        ></textarea>
-        <button type="submit">Submit</button>
+        ></input>
+        <button type="submit" className="btn btn-submit">
+          Submit
+        </button>
       </form>
 
       {emojiData.content && (
-        <>
-          <p>{emojiData.content}</p>
-          <button onClick={clearData}>Clear</button>
-        </>
+        <div className="card-container">
+          <div onClick={clearData} className="clear">
+            Clear
+          </div>
+          <EmojiCard data={emojiData.content} />
+        </div>
       )}
     </div>
   );

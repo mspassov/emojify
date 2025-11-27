@@ -21,7 +21,7 @@ const convertText = async (prevState, formData) =>{
         body: JSON.stringify({
             messages: [{
                     role: "user",
-                    content: `Convert the following sentence to emojis: ${sentence}`,
+                    content: `Convert the following sentence to emojis, and try to use a bit more emojis to be more descriptive: ${sentence}`,
                 }],
             model: "openai/gpt-oss-20b"
         })
