@@ -1,10 +1,14 @@
 import React from "react";
 import "@/assets/card.css";
 
-const EmojiCard = ({ data }) => {
+const EmojiCard = ({ emojis, sentence }) => {
   return (
     <div className="card">
-      <p>{data}</p>
+      <p className="sentence">
+        <strong>Prompt: </strong>
+        {sentence}
+      </p>
+      <p className="emojiText">{emojis}</p>
     </div>
   );
 };

@@ -8,12 +8,12 @@ const Navbar = () => {
         <div className="logo">Emojify</div>
         <ul className="nav-link-ul">
           <li className="nav-link">
-            <Link href="#" className="link">
+            <Link href="/" className="link">
               Home
             </Link>
           </li>
           <li className="nav-link">
-            <Link href="#" className="link">
+            <Link href="/about" className="link">
               About
             </Link>
           </li>

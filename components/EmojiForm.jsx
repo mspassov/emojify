@@ -5,6 +5,7 @@ import { useActionState, useTransition } from "react";
 
 const EmojiForm = () => {
   const initialData = {
+    sentence: null,
     content: null,
     reasoning: null,
   };
@@ -35,7 +36,7 @@ const EmojiForm = () => {
           <div onClick={clearData} className="clear">
             Clear
           </div>
-          <EmojiCard data={emojiData.content} />
+          <EmojiCard emojis={emojiData.content} sentence={emojiData.sentence} />
         </div>
       )}
     </div>

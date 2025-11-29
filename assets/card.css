@@ -3,9 +3,15 @@
     box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.2),
         0 1px 12px 0 rgba(0, 0, 0, 0.1);
     padding: 20px;
-    text-align: center;
 }
 
-.card p{
+.card .sentence{
+    font-size: 1rem;
+    text-align: left;
+    padding: 5px 0 15px 0;
+}
+
+.card .emojiText{
     font-size: 36px;
+    text-align: left;
 }
