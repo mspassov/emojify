@@ -3,6 +3,7 @@
     box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.2),
         0 1px 12px 0 rgba(0, 0, 0, 0.1);
     padding: 20px;
+    margin-bottom: 20px;
 }
 
 .card .sentence{
@@ -14,4 +15,26 @@
 .card .emojiText{
     font-size: 36px;
     text-align: left;
+}
+
+.card .reasoning-toggle{
+    cursor: pointer;
+    color: rgb(58, 58, 58);
+}
+
+.card .accordion{
+    padding: 5px 25px;
+    background-color: #d7d9e0;
+
+    .accordion-li{
+        margin: 5px 15px;
+    }
+}
+
+.card .accordion.closed{
+    display: none;
+}
+
+.card .accordion.open {
+    display: block;
 }

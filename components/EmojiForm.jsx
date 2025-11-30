@@ -2,25 +2,20 @@
 import EmojiCard from "./EmojiCard";
 import convertText from "@/actions/convertText";
 import { useActionState, useTransition } from "react";
+import { useState } from "react";
 
 const EmojiForm = () => {
-  const initialData = {
-    sentence: null,
-    content: null,
-    reasoning: null,
-  };
-  const [emojiData, formAction] = useActionState(convertText, initialData);
-  const [isPending, startTransition] = useTransition();
+  const [emojiData, setEmojiData] = useState([]);
 
-  const clearData = () => {
-    startTransition(() => formAction(initialData));
+  const handleAction = async (formData) => {
+    const res = await convertText(null, formData);
+    setEmojiData((prev) => [res, ...prev]);
   };
 
   return (
     <div>
-      <form action={formAction} className="flex-form">
+      <form action={handleAction} className="flex-form">
         <input
-          type="textarea"
           className="textarea"
           name="normalText"
           id="normalText"
@@ -31,12 +26,19 @@ const EmojiForm = () => {
         </button>
       </form>
 
-      {emojiData.content && (
+      {emojiData.length > 0 && (
         <div className="card-container">
-          <div onClick={clearData} className="clear">
+          <div onClick={() => setEmojiData([])} className="clear">
             Clear
           </div>
-          <EmojiCard emojis={emojiData.content} sentence={emojiData.sentence} />
+          {emojiData.map((item, index) => (
+            <EmojiCard
+              key={index}
+              emojis={item.content}
+              sentence={item.sentence}
+              reasoning={item.reasoning}
+            />
+          ))}
         </div>
       )}
     </div>
