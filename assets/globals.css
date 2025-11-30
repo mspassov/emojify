@@ -80,5 +80,6 @@ form .btn-submit{
     cursor: pointer;
     text-decoration: underline;
     margin-bottom: 2px;
+    display: inline;
 }
 

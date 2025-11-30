@@ -4,6 +4,7 @@
         0 1px 12px 0 rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .card .sentence{
@@ -38,3 +39,16 @@
 .card .accordion.open {
     display: block;
 }
+
+.card .copy-icon{
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.4rem;
+    color: rgb(109, 109, 109);
+
+    &:hover{
+        color: rgb(58, 58, 58);
+    }
+}   
