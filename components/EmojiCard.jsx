@@ -3,6 +3,7 @@
 import React from "react";
 import { FaRegCopy } from "react-icons/fa6";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import "@/assets/card.css";
 
 const EmojiCard = ({ emojis, sentence, reasoning }) => {
@@ -21,6 +22,9 @@ const EmojiCard = ({ emojis, sentence, reasoning }) => {
 
   const copyText = async () => {
     await navigator.clipboard.writeText(emojis);
+    toast.info("Copied!", {
+      autoClose: 1500,
+    });
   };
 
   return (
@@ -33,7 +37,7 @@ const EmojiCard = ({ emojis, sentence, reasoning }) => {
       <p className="reasoning-toggle" onClick={handleToggle}>
         {isOpen ? "-" : "+"} Reasoning
       </p>
-      <FaRegCopy onClick={copyText} className="copy-icon"/>
+      <FaRegCopy onClick={copyText} className="copy-icon" />
       <ul className={`accordion ${isOpen ? "open" : "closed"}`}>
         {reasoningArr.map((item, index) => (
           <li className="accordion-li" key={index}>

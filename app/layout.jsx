@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import "@/assets/globals.css";
 import "@/assets/nav.css";
+import { ToastContainer } from "react-toastify";
 import { Poppins, Pacifico } from "next/font/google";
 
 export const metadata = {
@@ -28,6 +29,7 @@ const MainLayout = ({ children }) => {
       <body className="container">
         <Navbar />
         {children}
+        <ToastContainer />
       </body>
     </html>
   );
