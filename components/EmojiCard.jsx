@@ -4,13 +4,21 @@ import React from "react";
 import { FaRegCopy } from "react-icons/fa6";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import "@/assets/card.css";
 
-const EmojiCard = ({ emojis, sentence, reasoning }) => {
+const EmojiCard = ({ id, emojis, sentence, reasoning }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   let reasoningArr = reasoning.split(".").map((s) => s.trim());
   reasoningArr.pop();
+
+  //Set up the logic for dragging the card
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id });
+
+  const style = { transition, transform: CSS.Transform.toString(transform) };
 
   const handleToggle = () => {
     if (isOpen) {
@@ -28,16 +36,26 @@ const EmojiCard = ({ emojis, sentence, reasoning }) => {
   };
 
   return (
-    <div className="card">
+    <div
+      className="card"
+      style={style}
+      ref={setNodeRef}
+      {...attributes}
+      {...listeners}
+    >
       <p className="sentence">
         <strong>Prompt: </strong>
         {sentence}
       </p>
+
       <p className="emojiText">{emojis}</p>
+
       <p className="reasoning-toggle" onClick={handleToggle}>
         {isOpen ? "-" : "+"} Reasoning
       </p>
+
       <FaRegCopy onClick={copyText} className="copy-icon" />
+
       <ul className={`accordion ${isOpen ? "open" : "closed"}`}>
         {reasoningArr.map((item, index) => (
           <li className="accordion-li" key={index}>

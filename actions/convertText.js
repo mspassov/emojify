@@ -1,8 +1,11 @@
 'use server';
 
+import {v4 as uuidv4} from 'uuid';
+
 const convertText = async (prevState, formData) =>{
 
     const sentence = formData.get('normalText');
+    const id = uuidv4();
 
     // const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
     //     method: "POST",
@@ -22,12 +25,14 @@ const convertText = async (prevState, formData) =>{
     // const result = await res.json();
 
     // const resData = {
+    //     id,
     //     sentence,
     //     content: result.choices[0].message.content,
     //     reasoning: result.choices[0].message.reasoning
     // }
 
     const resData = {
+        id,
         sentence,
         content: "🙋‍♂️🍔🍽️😋🥳👀",
         reasoning: "test"
