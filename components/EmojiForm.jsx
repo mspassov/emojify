@@ -6,9 +6,11 @@ import { useState } from "react";
 
 const EmojiForm = () => {
   const [emojiData, setEmojiData] = useState([]);
+  const [emojiInput, setEmojiInput] = useState("");
 
   const handleAction = async (formData) => {
     const res = await convertText(null, formData);
+    setEmojiInput("");
     setEmojiData((prev) => [res, ...prev]);
   };
 
@@ -18,10 +20,16 @@ const EmojiForm = () => {
         <input
           className="textarea"
           name="normalText"
+          value={emojiInput}
+          onChange={(e) => setEmojiInput(e.target.value)}
           id="normalText"
           placeholder="Emojify your sentence..."
         ></input>
-        <button type="submit" className="btn btn-submit">
+        <button
+          disabled={emojiInput.trim() == "" ? true : false}
+          type="submit"
+          className="btn btn-submit"
+        >
           Submit
         </button>
       </form>
