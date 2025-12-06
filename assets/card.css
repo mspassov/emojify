@@ -53,3 +53,16 @@
         color: rgb(58, 58, 58);
     }
 }   
+
+.card .interpret{
+    background-color: #4d4e62;
+    color: white;
+    border-radius: 12px;
+    padding: 5px 10px;
+    margin: 10px 0;
+
+    &:hover{
+        background-color: #2d2e45;
+    }
+}
+

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import interpretEmojis from "@/actions/interpretEmojis";
 import { FaRegCopy } from "react-icons/fa6";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -10,6 +11,7 @@ import "@/assets/card.css";
 
 const EmojiCard = ({ id, emojis, sentence, reasoning }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [newText, setNewText] = useState(null);
 
   let reasoningArr = reasoning.split(".").map((s) => s.trim());
   reasoningArr.pop();
@@ -17,7 +19,6 @@ const EmojiCard = ({ id, emojis, sentence, reasoning }) => {
   //Set up the logic for dragging the card
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id });
-
   const style = { transition, transform: CSS.Transform.toString(transform) };
 
   const handleToggle = () => {
@@ -35,6 +36,11 @@ const EmojiCard = ({ id, emojis, sentence, reasoning }) => {
     });
   };
 
+  const handleAction = async () => {
+    const res = await interpretEmojis(emojis);
+    setNewText(res.interpretation);
+  };
+
   return (
     <div
       className="card"
@@ -50,11 +56,20 @@ const EmojiCard = ({ id, emojis, sentence, reasoning }) => {
 
       <p className="emojiText">{emojis}</p>
 
+      <button className="btn interpret" onClick={handleAction}>
+        {newText ? "Try Again" : "Interpret"}
+      </button>
+
+      {newText && (
+        <p className="sentence">
+          <strong>Translation: </strong>
+          {newText}
+        </p>
+      )}
+
       <p className="reasoning-toggle" onClick={handleToggle}>
         {isOpen ? "-" : "+"} Reasoning
       </p>
-
-      <FaRegCopy onClick={copyText} className="copy-icon" />
 
       <ul className={`accordion ${isOpen ? "open" : "closed"}`}>
         {reasoningArr.map((item, index) => (
@@ -63,6 +78,8 @@ const EmojiCard = ({ id, emojis, sentence, reasoning }) => {
           </li>
         ))}
       </ul>
+
+      <FaRegCopy onClick={copyText} className="copy-icon" />
     </div>
   );
 };
