@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
@@ -18,8 +19,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-link">
-            <Link href="#" className="link">
-              Github
+            <Link href="https://github.com/mspassov/emojify" className="link">
+              <div className="github">Github</div>
+              <FaGithub className="github-icon" />
             </Link>
           </li>
         </ul>

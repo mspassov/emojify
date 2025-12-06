@@ -36,10 +36,34 @@
 
 .nav-link .link{
     text-decoration: none;
-    color: rgb(29, 29, 41)
+    color: rgb(29, 29, 41);
+
+    &:hover{
+        color: #7D83FF;
+        text-decoration: underline;
+    }
 }
 
 .navbar-ul .nav-link{
     margin: 4px 12px;
     padding: 2px 8px;
+}
+
+.nav .github-icon{
+    display: none;
+}
+
+@media (max-width: 420px){
+    .nav .github{
+        display: none;
+    }
+
+    .nav .github-icon {
+        display: block;
+        font-size: 1.2rem;
+    }
+
+    .navbar-ul .nav-link-ul {
+        align-items: center;
+    }
 }
