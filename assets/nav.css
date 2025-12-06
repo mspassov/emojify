@@ -1,6 +1,14 @@
 .nav{
-    margin: 16px 0;
+    margin: 16px auto;
+    width: 1200px;
 }
+
+@media (max-width: 1200px){
+    .nav{
+        width: 95%;
+    }
+}
+
 .navbar-ul{
     border-radius: 36px;
     background: rgba(255, 255, 255, 0.15);
@@ -27,6 +35,10 @@
     color: #7D83FF;
     margin: 4px 12px;
     padding: 2px 8px;
+
+    &:hover{
+        color: #33377b;
+    }
 }
 
 .navbar-ul .nav-link-ul{

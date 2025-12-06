@@ -27,8 +27,8 @@ const pacifico = Pacifico({
 const MainLayout = ({ children }) => {
   return (
     <html className={`${poppins.variable} ${pacifico.variable}`}>
-      <body className="">
-        <div className="container">
+      <body className="page-wrapper">
+        <div className="container page-content">
           <Navbar />
           {children}
           <ToastContainer />
