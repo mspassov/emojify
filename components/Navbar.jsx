@@ -19,7 +19,12 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-link">
-            <Link href="https://github.com/mspassov/emojify" className="link">
+            <Link
+              href="https://github.com/mspassov/emojify"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link"
+            >
               <div className="github">Github</div>
               <FaGithub className="github-icon" />
             </Link>

@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import "@/assets/globals.css";
 import "@/assets/nav.css";
 import { ToastContainer } from "react-toastify";
@@ -26,10 +27,13 @@ const pacifico = Pacifico({
 const MainLayout = ({ children }) => {
   return (
     <html className={`${poppins.variable} ${pacifico.variable}`}>
-      <body className="container">
-        <Navbar />
-        {children}
-        <ToastContainer />
+      <body className="">
+        <div className="container">
+          <Navbar />
+          {children}
+          <ToastContainer />
+        </div>
+        <Footer />
       </body>
     </html>
   );
